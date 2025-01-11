@@ -114,7 +114,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "PKU-PreElective"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "PKU-PreElective-v1.0"))
         self.label_2.setText(_translate("MainWindow", "未选课程列表：（双击选课）"))
         self.label_3.setText(_translate("MainWindow", "课名："))
         self.label_4.setText(_translate("MainWindow", "开课单位："))
