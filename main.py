@@ -171,8 +171,8 @@ def plotTable():
     max_heights = tb.apply(lambda row: max(0.06, max(s.count('\n')+1 for s in row)/25), axis=1).values
     
     #颜色映射
-    nameset = {cname for index, row in tb.iterrows() for cname in row if '[冲突]' not in cname}
-    colormap = {cname:cellcolor[i] for i, cname in enumerate(nameset)}
+    nameset = {cname.replace('(单)', '').replace('(双)', '') for index, row in tb.iterrows() for cname in row if '[冲突]' not in cname}
+    colormap = {ccname:cellcolor[i] for i, ccname in enumerate(nameset)}
     
     for (i, j), cell in table.get_celld().items():
         if i == 0:  # 表头
@@ -192,7 +192,7 @@ def plotTable():
                         cell.set_facecolor('#D50000')
                         cell.set_text_props(color='w', weight='bold')
                     else:
-                        cell.set_facecolor(colormap[cname])
+                        cell.set_facecolor(colormap[cname.replace('(单)', '').replace('(双)', '')])
 
     timetable_canvas.draw_idle()
 
